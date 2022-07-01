@@ -1,5 +1,9 @@
 const { filterItems } = require("./filterItems.esm.js");
-const { mockItems, expectedAllGrouped } = require("./mocks");
+const {
+  mockItems,
+  expectedAllGrouped,
+  expectedFilteredGrouped,
+} = require("./mocks");
 
 describe("filterItems", () => {
   it("returns all items if no query is specified", () => {
@@ -35,5 +39,23 @@ describe("filterItems", () => {
     const filteredItems = filterItems(mockItems, query);
     expect(filteredItems).toEqual(expectedAllGrouped);
     // expect(filteredItems).not.toBe(expectedResult);
+  });
+
+  it("returns items filtered by date and grouped by category", () => {
+    const query = {
+      where: {
+        startDate: new Date("2022-01-01"),
+        endDate: new Date("2022-04-01"),
+      },
+      groupBy: "category",
+    };
+    const filteredItems = filterItems(mockItems, query);
+    expect(filteredItems).toEqual(expectedFilteredGrouped);
+  });
+
+  it("returns no items if no item matches query", () => {
+    const query = { where: { category: "test-123" } };
+    const filteredItems = filterItems(mockItems, query);
+    expect(filteredItems.length).toBe(0);
   });
 });

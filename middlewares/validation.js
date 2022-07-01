@@ -1,5 +1,5 @@
 import validator from "validator";
-import { AppError } from "./errors.mjs";
+import { AppError } from "./errors.js";
 
 const checkDate = (date, isRequired = false) => {
   return !(date || isRequired) || validator.isDate("" + date);

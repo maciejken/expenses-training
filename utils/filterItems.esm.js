@@ -18,7 +18,7 @@ const groupByMap = {
     reducer: ({ name, items, count, totalAmount }, item) => {
       totalAmount = totalAmount + item.amount;
       count = count + 1;
-      averageAmount = totalAmount / count;
+      const averageAmount = totalAmount / count;
       return {
         name,
         items: items.concat(item),

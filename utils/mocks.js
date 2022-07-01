@@ -76,7 +76,9 @@ const expectedAllGrouped = [
         date: "2022-02-14T00:00:00.000Z",
       },
     ],
+    count: 2,
     totalAmount: 150,
+    averageAmount: 75,
   },
   {
     name: "jedzenie",
@@ -96,7 +98,9 @@ const expectedAllGrouped = [
         date: "2022-06-20T00:00:00.000Z",
       },
     ],
+    count: 2,
     totalAmount: 290,
+    averageAmount: 145,
   },
   {
     name: "transport",
@@ -116,7 +120,9 @@ const expectedAllGrouped = [
         date: "2022-06-16T00:00:00.000Z",
       },
     ],
+    count: 2,
     totalAmount: 145,
+    averageAmount: 72.5,
   },
   {
     name: "wakacje",
@@ -136,11 +142,47 @@ const expectedAllGrouped = [
         date: "2022-01-12T00:00:00.000Z",
       },
     ],
+    count: 2,
     totalAmount: 6000,
+    averageAmount: 3000,
+  },
+];
+
+const expectedFilteredGrouped = [
+  {
+    name: "prezenty",
+    items: [
+      {
+        id: "U3QYrR1iOLwY2-mJE722S",
+        title: "czekoladki",
+        amount: 50,
+        category: "prezenty",
+        date: "2022-02-14T00:00:00.000Z",
+      },
+    ],
+    count: 1,
+    totalAmount: 50,
+    averageAmount: 50,
+  },
+  {
+    name: "wakacje",
+    items: [
+      {
+        id: "b47Lu6NiLvtwPohEXQGsD",
+        title: "weekend w Zakopanem",
+        amount: 2000,
+        category: "wakacje",
+        date: "2022-01-12T00:00:00.000Z",
+      },
+    ],
+    count: 1,
+    totalAmount: 2000,
+    averageAmount: 2000,
   },
 ];
 
 module.exports = {
   mockItems,
   expectedAllGrouped,
+  expectedFilteredGrouped,
 };
